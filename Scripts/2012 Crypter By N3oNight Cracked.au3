@@ -4,14 +4,16 @@
 #include <Array.au3>
 #include <WinAPIShPath.au3>
 
-Global $crypterBase = $aCmdLine[1]
-Global $crypterDir = $crypterBase & '2012 Crypter.exe'
+
+Global $crypterDir = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Good_Crypters\2012 Crypter By N3oNight Cracked\2012 Crypter\2012 Crypter.exe'
 Global $crypterName
 Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
 ;_ArrayDisplay($aCmdLine)
-$testbinInput = $aCmdLine[2]
-$testOutput = $aCmdLine[3]
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
 
+run2012Crypter($testbinInput, $testOutput)
 Func run2012Crypter($testInput, $outputDir)
 
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)

@@ -23,9 +23,9 @@ $files = _FileListToArray($Path, "*.au3")
 
 Local $params[3] ; Make room for three elements
  ;Assign some data
- $params[0] =2
- $params[1] = $testbinInput
- $params[2] = $testOutput
+ ;$params[0] =2
+ $params[0] = $testbinInput
+ $params[1] = $testOutput
 
 ;MsgBox(0, "ScriptFullPath", @ScriptFullPath)
 
@@ -34,11 +34,12 @@ For $i = 1 To $files[0]
 	Local $foo = $Path & $files[$i] & ' ' & $testbinInput & ' ' & $testOutput
 	ConsoleWrite($foo & @CRLF)
 
-	MsgBox(0, "File Name", $foo)
+Local $temp = '/AutoIt3ExecuteScript "' & $foo & '"'
+	MsgBox(0, "File Name", $temp)
 	;$params[1] = $foo
-    RunWait(@AutoItExe & '/AutoIt3ExecuteScript "' & ' ' & $foo)
+    RunWait(@AutoItExe & $temp)
 
-	;ShellExecute($foo, $testbinInput & ' ' & $testOutput) ; $params) ; $binInput & ' ' & $output)
+	;ShellExecuteWait($foo, $testbinInput & ' ' & $testOutput) ; $params) ; $binInput & ' ' & $output)
 Next
 
 MsgBox(0, "Program", "Ended")
