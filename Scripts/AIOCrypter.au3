@@ -9,8 +9,14 @@ Global $crypterDir = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Good_Crypter
 Global $inputDir = 'C:\Users\Aditya\Desktop\Binaries\'
 Global $crypterName
 
-Global $testbinInput = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Benign_Exe\'
-Global $testOutput = 'C:\Users\Aditya\Desktop\Output2\'
+
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runAIOCrypter($testbinInput, $testOutput)
 
 ; runAIOCrypter($testbinInput, $testOutput)
 
@@ -73,6 +79,14 @@ Send($outputDir & $crypterName & '_' & $binaryRelLocation)
 MouseClick('primary', 603, 452, 1, 0)
 
 ; close app
-WinClose('AIO')
+WinWait('AIO', 'File has been encrypted!')
+WinWait('AIO', 'File has been encrypted!')
+WinActivate('AIO', 'File has been encrypted!')
+WinClose('AIO', 'File has been encrypted!')
+WinWait('Crypter')
+WinActivate('Crypter')
 WinClose('Crypter')
+WinWait('AIO')
+WinActivate('AIO')
+WinClose('AIO')
 EndFunc

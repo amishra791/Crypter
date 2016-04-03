@@ -9,6 +9,14 @@ Global $inputDir = 'C:\Users\Aditya\Desktop\Binaries\'
 Global $crypterName
 Global $binaryName
 
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runCrypteXORCrypter($testbinInput, $testOutput)
+
 
 Func runCrypteXORCrypter($testInput, $outputDir)
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)
@@ -23,7 +31,6 @@ for $i = 1 To $FileList0[0]
 		Next
 	Next
 Next
-
 
 EndFunc
 
@@ -61,6 +68,8 @@ Send($outputDir & $crypterName & '_' & $binaryRelLocation)
 MouseClick('primary', 603, 452, 1, 0)
 
 ; close
+WinWait('Success')
+WinActivate('Success')
 WinClose('Success')
 WinClose('Crypte MD5 - By System32')
 EndFunc

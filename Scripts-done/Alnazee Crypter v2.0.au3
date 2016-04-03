@@ -9,6 +9,14 @@ Global $crypterDir = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Good_Crypter
 Global $inputDir = 'C:\Users\Aditya\Desktop\Binaries\'
 Global $crypterName
 
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runAlnazee2_0Crypter($testbinInput, $testOutput)
+
 
 Func runAlnazee2_0Crypter($testInput, $outputDir)
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)

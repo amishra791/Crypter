@@ -13,7 +13,7 @@ print(output)
 
 #cryptoBaseDir = "C:\Users\Aditya\Desktop\Crypter\Scripts\"
 #input_test = "C:\Users\Aditya\cryptoComputer\data2\Crypters\Benign_Exe\"
-#input = "C:\Users\Aditya\Desktop\BenignExecutables\"
+#actual_input = "C:\Users\Aditya\Desktop\BenignExecutables\"
 #output = "C:\Users\Aditya\Desktop\Output\"
 
 #autoit = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.3xe"

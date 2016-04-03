@@ -8,6 +8,16 @@ Global $crypterDir = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Good_Crypter
 Global $inputDir = 'C:\Users\Aditya\Desktop\Binaries\'
 Global $crypterName
 
+
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runCrypteMD5Crypter($testbinInput, $testOutput)
+
+
 Func runCrypteMD5Crypter($testInput, $outputDir)
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)
 for $i = 1 To $FileList0[0]
@@ -58,6 +68,8 @@ Send($outputDir & $crypterName & '_' & $binaryRelLocation)
 MouseClick('primary', 594, 435, 1, 0)
 
 ; close
+WinWait('Success')
+WinActivate('Success')
 WinClose('Success')
 WinClose('Crypte MD5 - By System32')
 EndFunc

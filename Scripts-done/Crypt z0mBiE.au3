@@ -8,6 +8,14 @@ Global $crypterDir = 'C:\Users\Aditya\cryptoComputer\data2\Crypters\Good_Crypter
 Global $inputDir = 'C:\Users\Aditya\Desktop\Binaries\'
 Global $crypterName
 
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runCryptZombieCrypter($testbinInput, $testOutput)
+
 
 Func runCryptZombieCrypter($testInput, $outputDir)
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)
@@ -33,7 +41,8 @@ AutoItSetOption('MouseCoordMode', 0)
 Run($crypterDir)
 
 ;open stub
-MouseClick('primary', 180, 230, 1, 0)
+Sleep(1200)
+MouseClick('primary', 469, 281, 1, 0)
 
 ; wait for open dialog and input in file to load and click load
 WinWait('Open')

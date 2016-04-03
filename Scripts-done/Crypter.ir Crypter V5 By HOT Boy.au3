@@ -10,6 +10,14 @@ Global $crypterName
 Global $binaryName
 
 
+Local $aCmdLine = _WinAPI_CommandLineToArgv($CmdLineRaw)
+;_ArrayDisplay($aCmdLine)
+$testbinInput = $aCmdLine[1]
+$testOutput = $aCmdLine[2]
+;MsgBox(0, $testOutput, $testbinInput)
+
+runCrypterV5HotBoy($testbinInput, $testOutput)
+
 
 Func runCrypterV5HotBoy($testInput, $outputDir)
 Local $FileList0 = _FileListToArray($testInput, Default, 2, False)
@@ -38,6 +46,7 @@ Run($crypterDir)
 ;open
 WinWait('Crypter.ir Crypter V5 By HOT Boy')
 WinActivate('Crypter.ir Crypter V5 By HOT Boy')
+Sleep(3000)
 MouseClick('primary', 248, 293, 1, 0)
 
 ; wait for open dialog and input in file to load and click load
@@ -62,6 +71,10 @@ Send($outputDir & $crypterName & '_' & $binaryRelLocation)
 MouseClick('primary', 603, 452, 1, 0)
 
 ; close
+WinWait('Done')
+WinActivate('Done')
 WinClose('Done')
+WinWait('Crypter.ir Crypter V5 By HOT Boy')
+WinActivate('Crypter.ir Crypter V5 By HOT Boy')
 WinClose('Crypter.ir Crypter V5 By HOT Boy')
 EndFunc
